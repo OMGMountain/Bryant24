@@ -454,9 +454,9 @@
                 "AnalysysAgent.auto = " + formAutoV + "\n" +
                 "AnalysysAgent.autoTrack = " + formAutoTrackV;
             console.log(writeStr);
-            // var file = new Blob([writeStr], { type: "text/plain;charset=utf-8" });
-            // downloadButton.href = URL.createObjectURL(file);
-            // downloadButton.download = "AnalysysAgentInit.js";
+            var file = new Blob([writeStr], { type: "text/plain;charset=utf-8" });
+            downloadButton.href = URL.createObjectURL(file);
+            downloadButton.download = "AnalysysAgentInit.js";
 
         } else {
             alert("appid和url不能为空")
