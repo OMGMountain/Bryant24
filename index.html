@@ -32,9 +32,6 @@
             margin-bottom: 20px;
             text-decoration: none;
             text-align: center;
-        }
-
-        #wx-doc:hover {
             cursor: pointer;
         }
 
@@ -54,7 +51,6 @@
         }
 
         .form-item-input {
-            display: inline-block;
             width: 300px;
             height: 30px;
             border-radius: 5px;
@@ -82,6 +78,14 @@
 
         .from-item-detail-item3 {
             flex: 3;
+        }
+
+        .js-box .from-item-detail-item {
+            flex: 1;
+        }
+
+        .js-box .from-item-detail-item5 {
+            flex: 1.3
         }
 
         .from-item-detail-item-explain {
@@ -139,6 +143,45 @@
             margin: 0 5px;
             cursor: pointer;
         }
+
+        /* 复制代码 */
+        .copy {
+            height: 260px;
+        }
+
+        .copy-text {
+            float: left;
+            width: 900px;
+            height: 250px;
+            outline: none;
+            border: 1px solid #0097e0;
+            border-radius: 5px;
+            font-size: 14px;
+            line-height: 26px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .copy-button {
+            float: right;
+            width: 200px;
+            height: 50px;
+            color: #fff;
+            background: #0097e0;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            margin-top: 100px;
+        }
+
+        /* 几个盒子样式 */
+        .wx-box,
+        .js-box,
+        .android-box,
+        .iOS-box {
+            display: none;
+        }
     </style>
 </head>
 
@@ -154,43 +197,125 @@
             <p class="form-item-title">2，请输入项目的uploadUrl(数据接收地址):</p>
             <input type="text" placeholder="请输入上报地址" class="form-item-input" id="form-url" />
         </div>
-        <div class="form-item">
-            <p class="form-item-title">3，SDK文件的存放地址(相对于app.js 或者绝对路径):</p>
-            <input type="text" placeholder="SDK文件的存放地址" class="form-item-input" id="form-place" />
-        </div>
-        <div class="form-item">
-            <p class="form-item-title">4，是否开启页面的自动采集:</p>
-            <div class="from-item-detail">
-                <div class="from-item-detail-item">
-                    <input type="checkbox" name="pageView" class="form-item-pageView" id="form-auto-fibbden" /> 禁止
-                </div>
-                <div class="from-item-detail-item  from-item-detail-item2">
-                    <input type="checkbox" name="pageView" class="form-item-pageView" id="form-auto-pageview" />
-                    采集页面浏览事件
-                    <p class="from-item-detail-item-explain">·每次打开页面会发送$pageview 事件</p>
-                </div>
-                <div class="from-item-detail-item from-item-detail-item3">
-                    <input type="checkbox" name="pageView" class="form-item-pageView" id="form-auto-track" />
-                    采集绑定事件元素的点击（全埋点需要选择这个）
-                    <p class="from-item-detail-item-explain">
-                        ·采集绑定了事件的元素，支持tap、longtap、longPress，但需要设置data-content等，否则数据无法区分
-                    </p>
+        <!-- 小程序板块 -->
+        <div id="wx-box" class="wx-box">
+            <div class="form-item">
+                <p class="form-item-title">3，SDK文件的存放地址(相对于app.js 或者绝对路径):</p>
+                <input type="text" placeholder="SDK文件的存放地址" class="form-item-input form-place0" id="form-place" />
+            </div>
+            <div class="form-item">
+                <p class="form-item-title">4，是否开启页面的自动采集:</p>
+                <div class="from-item-detail">
+                    <div class="from-item-detail-item">
+                        <input type="checkbox" name="pageView" class="form-item-pageView form-item-pageView0"
+                            id="form-auto-fibbden" /> 禁止
+                    </div>
+                    <div class="from-item-detail-item  from-item-detail-item2">
+                        <input type="checkbox" name="pageView" class="form-item-pageView form-item-pageView0"
+                            id="form-auto-pageview" />
+                        采集页面浏览事件
+                        <p class="from-item-detail-item-explain">·每次打开页面会发送$pageview 事件</p>
+                    </div>
+                    <div class="from-item-detail-item from-item-detail-item3">
+                        <input type="checkbox" name="pageView" class="form-item-pageView form-auto-track0"
+                            id="form-auto-track" />
+                        采集绑定事件元素的点击（全埋点需要选择这个）
+                        <p class="from-item-detail-item-explain">
+                            ·采集绑定了事件的元素，支持tap、longtap、longPress，但需要设置data-content等，否则数据无法区分
+                        </p>
+                    </div>
                 </div>
             </div>
+        </div>
+        <!-- js 板块 -->
+        <div id="js-box" class="js-box">
+            <div class="form-item">
+                <p class="form-item-title">3，SDK文件的存放地址(相对于首页 index.html 或者绝对路径):</p>
+                <input type="text" placeholder="SDK文件的存放地址" class="form-item-input" id="form-place" />
+            </div>
+            <div class="form-item">
+                <p class="form-item-title">4，是否开启页面的自动采集:</p>
+                <div class="from-item-detail">
+                    <div class="from-item-detail-item">
+                        <input type="checkbox" name="pageView" class="form-item-pageView" id="form-auto-fibbden" /> 禁止
+                    </div>
+                    <div class="from-item-detail-item  from-item-detail-item2">
+                        <input type="checkbox" name="pageView" class="form-item-pageView" id="form-auto-pageview" />
+                        采集页面浏览事件
+                        <p class="from-item-detail-item-explain">·每次打开页面会发送$pageview 事件</p>
+                    </div>
+                    <div class="from-item-detail-item from-item-detail-item3">
+                        <input type="checkbox" name="pageView" class="form-item-pageView" id="form-auto-track" />
+                        采集绑定事件元素的点击（全埋点需要选择这个）
+                        <p class="from-item-detail-item-explain">
+                            ·采集绑定了事件的元素，支持tap、longtap、longPress，但需要设置data-content等，否则数据无法区分
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="form-item">
+                <p class="form-item-title">5，JSSDK集成方式:</p>
+                <div class="from-item-detail">
+                    <div class="from-item-detail-item">
+                        <input type="radio" name="integrated" class="form-item-pageView" id="form-inter-sync"
+                            checked="checked" />
+                        异步集成(推荐)
+                    </div>
+                    <div class="from-item-detail-item  from-item-detail-item2">
+                        <input type="radio" name="integrated" class="form-item-pageView" id="form-inter-async" />
+                        同步集成
+                    </div>
+                    <div class="from-item-detail-item from-item-detail-item3">
+                        <input type="radio" name="integrated" class="form-item-pageView" id="form-inter-es6" />ES6方式集成
+                    </div>
+                    <div class="from-item-detail-item  from-item-detail-item4">
+                        <input type="radio" name="integrated" class="form-item-pageView" id="form-inter-common" />
+                        CommonJS规范集成
+                    </div>
+                    <div class="from-item-detail-item  from-item-detail-item5">
+                        <input type="radio" name="integrated" class="form-item-pageView" id="form-inter-AMD" />
+                        AMD 规范集成（以 RequireJS 为例）
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--  android 板块-->
+        <div id="android-box" class="android-box">
+
+        </div>
+        <!-- ios 板块 -->
+        <div id="iOS-box" class="iOS-box">
+
         </div>
         <a id="download">
             <input type="button" value="一键生成" class="form-button" id="form-button" />
         </a>
+        <!-- 生成的代码放进 textarea 方便复制,存放init代码或者引用 -->
+        <div id="copy" class="copy copy0">
+            <textarea id="copy-text" class="copy-text copy-text0">
+
+            </textarea>
+            <button type="button" id="copy-button" class="copy-button copy-button0">复制代码</button>
+        </div>
     </form>
     <!-- 下载文件使用说明 -->
     <h2 class="intro-title">下载文件的介绍及使用说明</h2>
-    <div class="intro-box">
+    <div class="intro-box  wx-box" id="wx-box-intro">
         <p class="intro-box-item">1，文件内容为初始化代码，根据相关选项已经配置。</p>
         <p class="intro-box-item">2，配置项不止上面的配置，更多功能查看<a href="https://docs.analysys.cn/ark/integration/sdk/wx"
                 class="intro-box-item-href">微信小程序SDK说明文档</a>。</p>
         <p class="intro-box-item">3，打开文件复制代码到 app.js (微信原生开发）最上面。</p>
         <p class="intro-box-item">4，可加微信：nlfxwz、钉钉群：30099866，发送邮件至邮箱：nielifeng@analysys.com.cn 获得支持或者了解更多。</p>
     </div>
+    <!-- 下载文件使用说明 -->
+    <div class="intro-box js-box" id="js-box-intro">
+        <p class="intro-box-item">1，文件内容为初始化代码，根据相关选项已经配置。</p>
+        <p class="intro-box-item">2，配置项不止上面的配置，更多功能查看<a href="https://docs.analysys.cn/ark/integration/sdk/js"
+                class="intro-box-item-href">JavascriptSDK说明文档</a>。</p>
+        <p class="intro-box-item">3，可加微信：nlfxwz、钉钉群：30099866，发送邮件至邮箱：nielifeng@analysys.com.cn 获得支持或者了解更多。</p>
+    </div>
+
+
 
 </body>
 <script>
@@ -381,20 +506,59 @@
         }
     });
     // 逻辑开始
-    var formApp = document.getElementById("form-app");
-    var formU = document.getElementById("form-url");
-    var formSDK = document.getElementById("form-place");
-    var formFibbden = document.getElementById("form-auto-fibbden")
-    var formAuto = document.getElementById("form-auto-pageview")
-    var formAutoTrack = document.getElementById("form-auto-track")
-    console.log(333, formAutoTrack.checked)
-    var formButton = document.getElementById("form-button");
-    var downloadButton = document.getElementById("download");
-    // 监听方法
+    var quickTitle = document.getElementById("quick-title")  // 页面标题
+    var docUrl = document.getElementById("wx-doc");   // 微信文档 标题
+    var formApp = document.getElementById("form-app");  // appid 输入框 
+    var formU = document.getElementById("form-url");     // uploadUrl 输入框  
+    var formSDK0 = document.getElementsByClassName("form-place0")[0];  // sdk 存放位置输入框 wx
+    var formSDK1 = document.getElementsByClassName("form-place1")[0];  // sdk 存放位置输入框 js
+
+    var formFibbden = document.getElementById("form-auto-fibbden")  // 禁止选项
+    var formAuto = document.getElementById("form-auto-pageview")  // 开启pageView 选项
+    var formAutoTrack = document.getElementById("form-auto-track") // 开启全埋点选项
+    var formButton = document.getElementById("form-button");  // 一键生成按钮
+    var downloadButton = document.getElementById("download");  // 一键生成外面的a 标签
+    var copyText = document.getElementById("copy-text");  // textarea 区域 微信
+    var copyButton = document.getElementById("copy-button"); // 复制代码按钮  微信
+    var wxBox = document.getElementById("wx-box") // 微信板块
+    var jsBox = document.getElementById("js-box")
+    var androidBox = document.getElementById("android-box")
+    var iOSBox = document.getElementById("iOS-box")
+    var wxBoxIntro = document.getElementById("wx-box-intro")
+    var jsBoxIntro = document.getElementById("js-box-intro")
+
+
+    // 参数判断 type = 1  微信小程序 2，javascript  3,安卓客户端   4，ios客户端 
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return null;
+    }
+    var clientTitleList = ["易观微信小程序SDK快速接入", "易观JavascriptSDK快速接入", "易观Android客户端SDK快速接入", "易观iOS客户端SDK快速接入"];
+    var clientDocTextList = ["易观微信小程序SDK说明文档", "易观JavascriptSDK说明文档", "易观Android客户端SDK说明文档", "易观iOS客户端SDK说明文档"];
+    var clientDocList = ["wx", "js", "android", "ios"]
+    var quickTitleText = clientTitleList[0];
+    var clientType = GetQueryString("type");
+    if (!clientType) clientType = 0;
+    quickTitleText = clientTitleList[clientType]
+    var docUrlText = "https://docs.analysys.cn/ark/integration/sdk/" + clientDocList[clientType];
+    var clientDocText = clientDocTextList[clientType]
+    quickTitle.innerHTML = quickTitleText;
+    docUrl.innerHTML = clientDocText;
+    docUrl.href = docUrlText;
+    // 板块的显示
+    var boxList = [wxBox, jsBox, androidBox, iOSBox];
+    var boxIntroList = [wxBoxIntro, jsBoxIntro];
+    boxList[clientType].style.display = "block";
+    console.log(boxIntroList)
+
+    boxIntroList[clientType].style.display = "block";
+
+    // 监听方法 
     function onInput() {
         var appValue = formApp.value;
         var urlValue = formU.value;
-        var SDKurlValue = formSDK.value;
+        var SDKurlValue = formSDK0.value;
         if (this.value != "") {
             this.classList.add("complete")
             this.classList.remove("warn")
@@ -402,7 +566,6 @@
             this.classList.add("warn")
             this.classList.remove("complete")
         }
-        console.log(appValue, urlValue, SDKurlValue)
         if (appValue != "" && urlValue != "" && SDKurlValue != "") {
             formButton.classList.add("active");
         } else {
@@ -415,7 +578,7 @@
     // uploadURL 输入框监听
     formU.oninput = onInput
     // SDK存放位置 输入框监听
-    formSDK.oninput = onInput
+    formSDK0.oninput = onInput
     // 添加判断 假如 选择了禁止，其他两个则不允许勾选
     formFibbden.onchange = function () {
         if (this.checked) {
@@ -437,13 +600,11 @@
         if (this.classList.contains('active') == true) {
             var appV = formApp.value;
             var urlV = formU.value;
-            var SDKurlV = formSDK.value;
+            var SDKurlV = formSDK0.value;
             // 判断选中的值
             var formFibV = formFibbden.checked;
             var formAutoV = formAuto.checked;
             var formAutoTrackV = formAutoTrack.checked;
-            console.log(formFibV, formAutoV, formAutoTrackV)
-            // console.log(22, formFibV, formAutoV, formAutoTrack)
             // 写入文件开始
             var writeStr = " //app.js \n" +
                 "let AnalysysAgent = require(\"" + SDKurlV + "/AnalysysAgent_WX_SDK.plugin.min.js\")  //插件版本 sdk \n" +
@@ -455,13 +616,21 @@
                 "AnalysysAgent.auto = " + formAutoV + "\n" +
                 "AnalysysAgent.autoTrack = " + formAutoTrackV;
             console.log(writeStr);
-            var file = new Blob([writeStr], { type: "text/plain;charset=utf-8" });
-            downloadButton.href = URL.createObjectURL(file);
-            downloadButton.download = "AnalysysAgentInit.js";
+            // 文件写入 textarea
+            copyText.innerHTML = writeStr;
+            // var file = new Blob([writeStr], { type: "text/plain;charset=utf-8" });
+            // downloadButton.href = URL.createObjectURL(file);
+            // downloadButton.download = "AnalysysAgentInit.js";
 
         } else {
             alert("appid和url不能为空")
         }
+    }
+    // 复制代码
+    copyButton.onclick = function () {
+        // 把textarea选中
+        copyText.select();
+        document.execCommand("Copy");
     }
 
 
