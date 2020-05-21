@@ -207,18 +207,16 @@
                 <p class="form-item-title">4，是否开启页面的自动采集:</p>
                 <div class="from-item-detail">
                     <div class="from-item-detail-item">
-                        <input type="checkbox" name="pageView" class="form-item-pageView form-item-pageView0"
-                            id="form-auto-fibbden" /> 禁止
+                        <input type="checkbox" name="pageView" class="form-item-pageView-fibbden0" />
+                        禁止
                     </div>
                     <div class="from-item-detail-item  from-item-detail-item2">
-                        <input type="checkbox" name="pageView" class="form-item-pageView form-item-pageView0"
-                            id="form-auto-pageview" />
+                        <input type="checkbox" name="pageView" class="form-item-pageView-auto0" />
                         采集页面浏览事件
                         <p class="from-item-detail-item-explain">·每次打开页面会发送$pageview 事件</p>
                     </div>
                     <div class="from-item-detail-item from-item-detail-item3">
-                        <input type="checkbox" name="pageView" class="form-item-pageView form-auto-track0"
-                            id="form-auto-track" />
+                        <input type="checkbox" name="pageView" class="form-item-track-auto0" />
                         采集绑定事件元素的点击（全埋点需要选择这个）
                         <p class="from-item-detail-item-explain">
                             ·采集绑定了事件的元素，支持tap、longtap、longPress，但需要设置data-content等，否则数据无法区分
@@ -231,21 +229,21 @@
         <div id="js-box" class="js-box">
             <div class="form-item">
                 <p class="form-item-title">3，SDK文件的存放地址(相对于首页 index.html 或者绝对路径):</p>
-                <input type="text" placeholder="SDK文件的存放地址" class="form-item-input" id="form-place" />
+                <input type="text" placeholder="SDK文件的存放地址" class="form-item-input form-place1" id="form-place" />
             </div>
             <div class="form-item">
                 <p class="form-item-title">4，是否开启页面的自动采集:</p>
                 <div class="from-item-detail">
                     <div class="from-item-detail-item">
-                        <input type="checkbox" name="pageView" class="form-item-pageView" id="form-auto-fibbden" /> 禁止
+                        <input type="checkbox" name="pageView" class="form-item-pageView-fibbden1" /> 禁止
                     </div>
                     <div class="from-item-detail-item  from-item-detail-item2">
-                        <input type="checkbox" name="pageView" class="form-item-pageView" id="form-auto-pageview" />
+                        <input type="checkbox" name="pageView" class="form-item-pageView-auto1" />
                         采集页面浏览事件
                         <p class="from-item-detail-item-explain">·每次打开页面会发送$pageview 事件</p>
                     </div>
                     <div class="from-item-detail-item from-item-detail-item3">
-                        <input type="checkbox" name="pageView" class="form-item-pageView" id="form-auto-track" />
+                        <input type="checkbox" name="pageView" class="form-item-track-auto1" />
                         采集绑定事件元素的点击（全埋点需要选择这个）
                         <p class="from-item-detail-item-explain">
                             ·采集绑定了事件的元素，支持tap、longtap、longPress，但需要设置data-content等，否则数据无法区分
@@ -307,10 +305,17 @@
         <p class="intro-box-item">3，打开文件复制代码到 app.js (微信原生开发）最上面。</p>
         <p class="intro-box-item">4，可加微信：nlfxwz、钉钉群：30099866，发送邮件至邮箱：nielifeng@analysys.com.cn 获得支持或者了解更多。</p>
     </div>
-    <!-- 下载文件使用说明 -->
+    <!-- JS下载文件使用说明 -->
     <div class="intro-box js-box" id="js-box-intro">
         <p class="intro-box-item">1，文件内容为初始化代码，根据相关选项已经配置。</p>
         <p class="intro-box-item">2，配置项不止上面的配置，更多功能查看<a href="https://docs.analysys.cn/ark/integration/sdk/js"
+                class="intro-box-item-href">JavascriptSDK说明文档</a>。</p>
+        <p class="intro-box-item">3，可加微信：nlfxwz、钉钉群：30099866，发送邮件至邮箱：nielifeng@analysys.com.cn 获得支持或者了解更多。</p>
+    </div>
+    <!-- JS下载文件使用说明 -->
+    <div class="intro-box js-box" id="android-box-intro">
+        <p class="intro-box-item">1，文件内容为初始化代码，根据相关选项已经配置。</p>
+        <p class="intro-box-item">2，配置项不止上面的配置，更多功能查看<a href="https://docs.analysys.cn/ark/integration/sdk/android"
                 class="intro-box-item-href">JavascriptSDK说明文档</a>。</p>
         <p class="intro-box-item">3，可加微信：nlfxwz、钉钉群：30099866，发送邮件至邮箱：nielifeng@analysys.com.cn 获得支持或者了解更多。</p>
     </div>
@@ -513,9 +518,21 @@
     var formSDK0 = document.getElementsByClassName("form-place0")[0];  // sdk 存放位置输入框 wx
     var formSDK1 = document.getElementsByClassName("form-place1")[0];  // sdk 存放位置输入框 js
 
-    var formFibbden = document.getElementById("form-auto-fibbden")  // 禁止选项
-    var formAuto = document.getElementById("form-auto-pageview")  // 开启pageView 选项
-    var formAutoTrack = document.getElementById("form-auto-track") // 开启全埋点选项
+    var formFibbden0 = document.getElementsByClassName("form-item-pageView-fibbden0")[0]  // wx 禁止选项
+    var formAuto0 = document.getElementsByClassName("form-item-pageView-auto0")[0]  // wx 开启pageView 选项
+    var formAutoTrack0 = document.getElementsByClassName("form-item-track-auto0")[0] // wx 开启全埋点选项
+    var formFibbden1 = document.getElementsByClassName("form-item-pageView-fibbden1")[0]  // js 禁止选项
+    var formAuto1 = document.getElementsByClassName("form-item-pageView-auto1")[0]  // js 开启pageView 选项
+    var formAutoTrack1 = document.getElementsByClassName("form-item-track-auto1")[0] // js 开启全埋点选项
+
+    var interSync = document.getElementById("form-inter-sync");  // js同步集成
+    var interASync = document.getElementById("form-inter-async");  //js异步集成
+    var interES6 = document.getElementById("form-inter-es6");   // ES6
+    var interCom = document.getElementById("form-inter-common");   // common JS
+    var interAMD = document.getElementById("form-inter-AMD");   // AMD 
+
+
+
     var formButton = document.getElementById("form-button");  // 一键生成按钮
     var downloadButton = document.getElementById("download");  // 一键生成外面的a 标签
     var copyText = document.getElementById("copy-text");  // textarea 区域 微信
@@ -526,6 +543,7 @@
     var iOSBox = document.getElementById("iOS-box")
     var wxBoxIntro = document.getElementById("wx-box-intro")
     var jsBoxIntro = document.getElementById("js-box-intro")
+    var androidIntro = document.getElementById("android-box-intro")
 
 
     // 参数判断 type = 1  微信小程序 2，javascript  3,安卓客户端   4，ios客户端 
@@ -548,17 +566,16 @@
     docUrl.href = docUrlText;
     // 板块的显示
     var boxList = [wxBox, jsBox, androidBox, iOSBox];
-    var boxIntroList = [wxBoxIntro, jsBoxIntro];
+    var boxIntroList = [wxBoxIntro, jsBoxIntro, androidIntro];
     boxList[clientType].style.display = "block";
     console.log(boxIntroList)
-
     boxIntroList[clientType].style.display = "block";
 
     // 监听方法 
     function onInput() {
         var appValue = formApp.value;
         var urlValue = formU.value;
-        var SDKurlValue = formSDK0.value;
+        var SDKurlValue = formSDK0.value || formSDK1.value
         if (this.value != "") {
             this.classList.add("complete")
             this.classList.remove("warn")
@@ -577,51 +594,194 @@
     formApp.oninput = onInput
     // uploadURL 输入框监听
     formU.oninput = onInput
-    // SDK存放位置 输入框监听
+    // wx  SDK存放位置 输入框监听
     formSDK0.oninput = onInput
-    // 添加判断 假如 选择了禁止，其他两个则不允许勾选
-    formFibbden.onchange = function () {
+    // js SDK存放位置监听
+    formSDK1.oninput = onInput
+    // wx小程序的 添加判断 假如 选择了禁止，其他两个则不允许勾选
+    function changeOn(auto, autoTrack) {
         if (this.checked) {
-            console.log(1111)
-            formAuto.checked = false;
-            formAutoTrack.checked = false;
-            formAuto.setAttribute("disabled", "disabled")
-            formAutoTrack.setAttribute("disabled", "disabled")
+            auto.checked = false;
+            autoTrack.checked = false;
+            auto.setAttribute("disabled", "disabled")
+            autoTrack.setAttribute("disabled", "disabled")
         } else {
-            console.log(22222)
-            formAuto.removeAttribute("checked")
-            formAutoTrack.removeAttribute("checked")
-            formAuto.removeAttribute("disabled")
-            formAutoTrack.removeAttribute("disabled")
+            auto.removeAttribute("checked")
+            autoTrack.removeAttribute("checked")
+            auto.removeAttribute("disabled")
+            autoTrack.removeAttribute("disabled")
         }
     }
-    // 一键生成
+    formFibbden0.onchange = changeOn(formAuto0, formAutoTrack0)
+    // js 禁止和 选项勾线
+    formFibbden1.onchange = changeOn(formAuto1, formAutoTrack1)
+    // 一键生成 
     formButton.onclick = function () {
         if (this.classList.contains('active') == true) {
             var appV = formApp.value;
             var urlV = formU.value;
-            var SDKurlV = formSDK0.value;
-            // 判断选中的值
-            var formFibV = formFibbden.checked;
-            var formAutoV = formAuto.checked;
-            var formAutoTrackV = formAutoTrack.checked;
-            // 写入文件开始
-            var writeStr = " //app.js \n" +
-                "let AnalysysAgent = require(\"" + SDKurlV + "/AnalysysAgent_WX_SDK.plugin.min.js\")  //插件版本 sdk \n" +
-                "let AnalysysEncryption = require(\"" + SDKurlV + "/AnalysysAgent_encryption.min.js\")   //加密板块，需要的话单独引入。\n" +
-                "AnalysysAgent.encrypt = AnalysysEncryption;\n" +
-                "AnalysysAgent.debugMode = 2 \n" +
-                "AnalysysAgent.appkey = " + appV + "\n" +
-                "AnalysysAgent.uploadURL = " + urlV + "\n" +
-                "AnalysysAgent.auto = " + formAutoV + "\n" +
-                "AnalysysAgent.autoTrack = " + formAutoTrackV;
-            console.log(writeStr);
-            // 文件写入 textarea
-            copyText.innerHTML = writeStr;
-            // var file = new Blob([writeStr], { type: "text/plain;charset=utf-8" });
-            // downloadButton.href = URL.createObjectURL(file);
-            // downloadButton.download = "AnalysysAgentInit.js";
+            // 微信小程序
+            if (clientType == 0 || !clientType) {
+                console.log("微信小程序")
+                var SDKurlV = formSDK0.value;
+                // 判断自动采集选中的值
+                var formFibV = formFibbden0.checked;
+                var formAutoV = formAuto0.checked;
+                var formAutoTrackV = formAutoTrack0.checked;
+                // 写入文件开始
+                var writeStr = " //app.js \n" +
+                    "let AnalysysAgent = require(\"" + SDKurlV + "/AnalysysAgent_WX_SDK.plugin.min.js\")  //插件版本 sdk \n" +
+                    "let AnalysysEncryption = require(\"" + SDKurlV + "/AnalysysAgent_encryption.min.js\")   //加密板块，需要的话单独引入。\n" +
+                    "AnalysysAgent.encrypt = AnalysysEncryption;\n" +
+                    "AnalysysAgent.debugMode = 2 \n" +
+                    "AnalysysAgent.appkey = " + appV + "\n" +
+                    "AnalysysAgent.uploadURL = " + urlV + "\n" +
+                    "AnalysysAgent.auto = " + formAutoV + "\n" +
+                    "AnalysysAgent.autoTrack = " + formAutoTrackV;
+                console.log(writeStr);
+                // 文件写入 textarea
+                copyText.innerHTML = writeStr;
+                // var file = new Blob([writeStr], { type: "text/plain;charset=utf-8" });
+                // downloadButton.href = URL.createObjectURL(file);
+                // downloadButton.download = "AnalysysAgentInit.js";
+            }
+            // Javascript
+            if (clientType == 1) {
+                console.log("js板块")
+                var SDKurlV = formSDK1.value;
+                // 判断自动采集选中的值
+                var formFibV = formFibbden1.checked;
+                var formAutoV = formAuto1.checked;
+                var formAutoTrackV = formAutoTrack1.checked;
+                // 查看集成方式 
+                var interSyncV = interSync.checked
+                var interASyncV = interASync.checked
+                var interES6V = interES6.checked
+                var interComV = interCom.checked
+                var interAMDV = interAMD.checked
+                // 生成初始化文件 
+                console.log(4444, interSyncV, interASyncV, interES6V, interComV, interAMDV)
+                var jsStr = ""
+                // 同步集成
+                if (interSyncV) {
+                    jsStr = "<script> \n" +
+                        "   (function(config) { \n" +
+                        "       window.AnalysysAgent = window.AnalysysAgent || []; \n" +
+                        "       window.AnalysysAgent.methods = 'identify alias reset track profileSet profileSetOnce profileIncrement profileAppend profileUnset profileDelete registerSuperProperty registerSuperProperties unRegisterSuperProperty clearSuperProperties getSuperProperty getSuperProperties pageView getDistinctId getPresetProperties'.split(' '); \n" +
+                        "       function factory(b) { \n" +
+                        "           return function () { \n" +
+                        "               var a = Array.prototype.slice.call(arguments); \n" +
+                        "               a.unshift(b);\n" +
+                        "               window.AnalysysAgent.push(a);\n" +
+                        "               return window.AnalysysAgent;\n" +
+                        "           }\n" +
+                        "       };\n" +
+                        "       for (var i = 0; i < AnalysysAgent.methods.length; i++) {\n" +
+                        "           var key = window.AnalysysAgent.methods[i];\n" +
+                        "           AnalysysAgent[key] = factory(key);\n" +
+                        "       }\n" +
+                        "       for (var key in config) {\n" +
+                        "           if (!AnalysysAgent[key]) AnalysysAgent[key] = factory(key);\n" +
+                        "           AnalysysAgent[key](config[key]);\n" +
+                        "       }\n" +
+                        "       var date = new Date();\n" +
+                        "       var time = new String(date.getFullYear()) + new String(date.getMonth() + 1) + new String(date.getDate());\n" +
+                        "       var d = document,\n" +
+                        "           c = d.createElement('script'),\n" +
+                        "           n = d.getElementsByTagName('script')[0];\n" +
+                        "       c.type = 'text/javascript';\n" +
+                        "       c.async = true;\n" +
+                        "       c.id = 'ARK_SDK';\n" +
+                        "       c.src = '/*设置为JS SDK实际存放地址*/' +'?v=' +time; //JS SDK存放地址\n" +
+                        "       n.parentNode.insertBefore(c, n);\n" +
+                        "   })({\n" +
+                        "           appkey: " + appV + ", //APPKEY\n" +
+                        "           uploadURL: " + urlV + ",//上传数据的地址\n" +
+                        "           auto:" + formAutoV + ",// 是否开启自动采集\n" +
+                        "           autoTrack:" + formAutoTrackV + ",// 是否开启全埋点\n" +
+                        "    })\n" +
+                        "<\/script>";
+                    // 写入 复选框
+                }
+                // 异步集成
+                if (interASyncV) {
+                    jsStr = "<script>\n" +
+                        "      (function(config) {\n" +
+                        "           window.AnalysysAgent = window.AnalysysAgent || [];\n" +
+                        "           window.AnalysysAgent.methods = 'identify alias reset track profileSet profileSetOnce profileIncrement profileAppend profileUnset profileDelete registerSuperProperty registerSuperProperties unRegisterSuperProperty clearSuperProperties getSuperProperty getSuperProperties pageView getDistinctId getPresetProperties'.split(' ');\n" +
+                        "           function factory(b) {\n" +
+                        "               return function () {\n" +
+                        "                   var a = Array.prototype.slice.call(arguments);\n" +
+                        "                   a.unshift(b);\n" +
+                        "                   window.AnalysysAgent.push(a);\n" +
+                        "                   return window.AnalysysAgent;\n" +
+                        "               }\n" +
+                        "           };\n" +
+                        "           for (var i = 0; i < AnalysysAgent.methods.length; i++) {\n" +
+                        "               var key = window.AnalysysAgent.methods[i];\n" +
+                        "               AnalysysAgent[key] = factory(key);\n" +
+                        "           }\n" +
+                        "           for (var key in config) {\n" +
+                        "               if (!AnalysysAgent[key]) AnalysysAgent[key] = factory(key);\n" +
+                        "               AnalysysAgent[key](config[key]);\n" +
+                        "           }\n" +
+                        "      })({\n" +
+                        "          appkey: " + appV + ", //APPKEY\n" +
+                        "          uploadURL: " + urlV + ",//上传数据的地址\n" +
+                        "          auto:" + formAutoV + ",// 是否开启自动采集\n" +
+                        "          autoTrack:" + formAutoTrackV + ",// 是否开启全埋点\n" +
+                        "      })\n" +
+                        "<\/script>\n" +
+                        "//引用JS SDK文件的script标签必须在初始化代码之下\n" +
+                        "//建议在script标签设置id为ARK_SDK,该ID用来引导可视化模块与热图模块的加载\n" +
+                        "<script type=\"text/javascript\" id=\"ARK_SDK\" src=\"" + SDKurlV + "\"><\/script>\n";
+                }
+                // es6 集成
+                if (interES6V) {
+                    jsStr = "// 从 npm 获取 sdk\n" +
+                        "import  AnalysysAgent from 'ans-javascript-sdk/SDK/AnalysysAgent_JS_SDK.es6.min.js'\n" +
+                        "//自行下载SDK\n" +
+                        "//import AnalysysAgent from '" + SDKurlV + "'\n" +
+                        "AnalysysAgent.init({\n" +
+                        "    appkey: " + appV + ", //APPKEY\n" +
+                        "    uploadURL: " + urlV + ",//上传数据的地址\n" +
+                        "    auto:" + formAutoV + ",// 是否开启自动采集\n" +
+                        "    autoTrack:" + formAutoTrackV + ",// 是否开启全埋点\n" +
+                        "    SDKFileDirectory: '" + SDKurlV + "'//可视化与热图模块SDK存放目录。\n" +
+                        "})\n";
+                }
+                // CommonJS 集成
+                if (interComV) {
+                    jsStr = "var AnalysysAgent = require('ans-javascript-sdk')\n" +
+                        "AnalysysAgent.init({\n" +
+                        "    appkey: " + appV + ", //APPKEY\n" +
+                        "    uploadURL: " + urlV + ",//上传数据的地址\n" +
+                        "    auto:" + formAutoV + ",// 是否开启自动采集\n" +
+                        "    autoTrack:" + formAutoTrackV + ",// 是否开启全埋点\n" +
+                        "    SDKFileDirectory: '" + SDKurlV + "'//可视化与热图模块SDK存放目录。\n" +
+                        "}) ";
 
+                }
+                if (interAMDV) {
+                    jsStr = "requirejs([\"" + SDKurlV + "/AnalysysAgent_JS_SDK.min\"], function(AnalysysAgent) {\n" +
+                        "   AnalysysAgent.init({\n" +
+                        "       appkey: " + appV + ", //APPKEY\n" +
+                        "       uploadURL: " + urlV + ",//上传数据的地址\n" +
+                        "       auto:" + formAutoV + ",// 是否开启自动采集\n" +
+                        "       autoTrack:" + formAutoTrackV + ",// 是否开启全埋点\n" +
+                        "       SDKFileDirectory: '" + SDKurlV + "'//可视化与热图模块SDK存放目录。\n" +
+                        "   }) \n" +
+                        "}); "
+                }
+                console.log(jsStr);
+                // 文件写入 textarea
+                copyText.innerHTML = ""
+                copyText.innerHTML = jsStr;
+            }
+            // Android SDK
+            if (clientType == 2) {
+                console.log("安卓板块")
+            }
         } else {
             alert("appid和url不能为空")
         }
