@@ -312,10 +312,17 @@
                 class="intro-box-item-href">JavascriptSDK说明文档</a>。</p>
         <p class="intro-box-item">3，可加微信：nlfxwz、钉钉群：30099866，发送邮件至邮箱：nielifeng@analysys.com.cn 获得支持或者了解更多。</p>
     </div>
-    <!-- JS下载文件使用说明 -->
+    <!-- android 下载文件使用说明 -->
     <div class="intro-box js-box" id="android-box-intro">
         <p class="intro-box-item">1，文件内容为初始化代码，根据相关选项已经配置。</p>
         <p class="intro-box-item">2，配置项不止上面的配置，更多功能查看<a href="https://docs.analysys.cn/ark/integration/sdk/android"
+                class="intro-box-item-href">JavascriptSDK说明文档</a>。</p>
+        <p class="intro-box-item">3，可加微信：nlfxwz、钉钉群：30099866，发送邮件至邮箱：nielifeng@analysys.com.cn 获得支持或者了解更多。</p>
+    </div>
+    <!-- iOS 下载文件使用说明 -->
+    <div class="intro-box js-box" id="android-box-intro">
+        <p class="intro-box-item">1，文件内容为初始化代码，根据相关选项已经配置。</p>
+        <p class="intro-box-item">2，配置项不止上面的配置，更多功能查看<a href="https://docs.analysys.cn/ark/integration/sdk/ios"
                 class="intro-box-item-href">JavascriptSDK说明文档</a>。</p>
         <p class="intro-box-item">3，可加微信：nlfxwz、钉钉群：30099866，发送邮件至邮箱：nielifeng@analysys.com.cn 获得支持或者了解更多。</p>
     </div>
@@ -653,6 +660,7 @@
                 var formFibV = formFibbden1.checked;
                 var formAutoV = formAuto1.checked;
                 var formAutoTrackV = formAutoTrack1.checked;
+                var time = new Date().getTime();
                 // 查看集成方式 
                 var interSyncV = interSync.checked
                 var interASyncV = interASync.checked
@@ -692,7 +700,7 @@
                         "       c.type = 'text/javascript';\n" +
                         "       c.async = true;\n" +
                         "       c.id = 'ARK_SDK';\n" +
-                        "       c.src = '/*设置为JS SDK实际存放地址*/' +'?v=' +time; //JS SDK存放地址\n" +
+                        "       c.src = " + SDKurlV + '?v=' + time + "//JS SDK存放地址\n" +
                         "       n.parentNode.insertBefore(c, n);\n" +
                         "   })({\n" +
                         "           appkey: " + appV + ", //APPKEY\n" +
